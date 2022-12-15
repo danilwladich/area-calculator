@@ -46,10 +46,10 @@ function App() {
       let scale = 1
       const svgWidth = fieldSvg.clientWidth
       const svgHeight = fieldSvg.clientHeight
-      while (Math.max(AB * scale, BC * scale, AC * scale) < svgHeight / 2) {
+      while (Math.max(AB * scale, BC * scale, AC * scale) < svgHeight * 2 / 3) {
         scale += 0.1
       }
-      while (Math.max(AB * scale, BC * scale, AC * scale) > svgHeight / 2) {
+      while (Math.max(AB * scale, BC * scale, AC * scale) > svgHeight * 2 / 3) {
         scale -= 0.1
       }
 
@@ -97,13 +97,13 @@ function App() {
         </div>
 
         <div ref={fieldSvgRef} className='block flex-auto relative'>
-          <svg style={{ transform: "scale(3.9000000000000026) translate(160.06245890861268px,36.41683103221564px)" }} height="25.641025641025625%" width="25.641025641025625%">
-            <text style={{ transform: "scale(0.2564102564102562)" }} x="913.6" y="257.30000000000007" fill="rgb(0,0,255)">A</text>
-            <line x1="205.2564102564101" y1="26.974358974358942" x2="207.2564102564101" y2="52.97435897435894" style={{ stroke: "rgb(255,0,0)" }}></line>
-            <text style={{ transform: "scale(0.2564102564102562)" }} x="804.4" y="101.29999999999995" fill="rgb(0,0,255)">B</text>
-            <line x1="233.2564102564101" y1="66.97435897435895" x2="205.2564102564101" y2="26.974358974358942" style={{ stroke: "rgb(255,0,0)" }}></line>
-            <text style={{ transform: "scale(0.2564102564102562)" }} x="812.1999999999999" y="202.70000000000002" fill="rgb(0,0,255)">C</text>
-            <line x1="233.2564102564101" y1="66.97435897435895" x2="207.2564102564101" y2="52.97435897435894" style={{ stroke: "rgb(255,0,0)" }}></line>
+          <svg style={{ transform: "scale(5.199999999999998) translate(130.39571005917162px,29.66715976331362px)" }} height="19.230769230769237%" width="19.230769230769237%">
+            <text style={{ transform: "scale(0.19230769230769237)" }} x="938.2999999999998" y="279.4" fill="rgb(0,0,255)">A</text>
+            <line x1="151.44230769230774" y1="14.73076923076924" x2="153.44230769230774" y2="40.73076923076924" style={{ stroke: "rgb(255,0,0)" }}></line>
+            <text style={{ transform: "scale(0.19230769230769237)" }} x="792.6999999999999" y="71.40000000000003" fill="rgb(0,0,255)">B</text>
+            <line x1="179.44230769230774" y1="54.73076923076924" x2="151.44230769230774" y2="14.73076923076924" style={{ stroke: "rgb(255,0,0)" }}></line>
+            <text style={{ transform: "scale(0.19230769230769237)" }} x="803.0999999999999" y="202.70000000000002" fill="rgb(0,0,255)">C</text>
+            <line x1="179.44230769230774" y1="54.73076923076924" x2="153.44230769230774" y2="40.73076923076924" style={{ stroke: "rgb(255,0,0)" }}></line>
           </svg>
         </div>
 
