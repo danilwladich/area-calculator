@@ -1,3 +1,4 @@
+import { cn } from "../lib/utils";
 import { Axes } from "./axes";
 
 export function SvgField({
@@ -25,65 +26,64 @@ export function SvgField({
 	};
 
 	return (
-		<div>
-			<div className={`relative mx-auto w-[${svgWidth}px] h-[${svgHeight}px]`}>
-				<Axes />
+		<div className={cn(`relative mx-auto w-[${300}px] h-[${300}px]`)}>
+			<Axes />
 
-				<svg
-					style={{
-						transform: `scale(${scale}) translate(${
-							(svgWidth * scale - svgWidth) / scale / 2 / scale
-						}px,${(svgHeight * scale - svgHeight) / scale / 2 / scale}px)`,
-					}}
-					height={`${100 / scale}%`}
-					width={`${100 / scale}%`}
+			<svg
+				style={{
+					transform: `
+					scale(${scale}) 
+					translate(${(svgWidth * scale - svgWidth) / scale / 2 / scale}px,
+					${(svgHeight * scale - svgHeight) / scale / 2 / scale}px)`,
+				}}
+				height={`${100 / scale}%`}
+				width={`${100 / scale}%`}
+			>
+				<text
+					style={textStyle}
+					x={ax * scale + scale + vectorX * scale}
+					y={ay * scale - scale + vectorY * scale}
 				>
-					<text
-						style={textStyle}
-						x={ax * scale + scale + vectorX * scale}
-						y={ay * scale - scale + vectorY * scale}
-					>
-						A
-					</text>
-					<line
-						x1={bx + vectorX}
-						y1={by + vectorY}
-						x2={cx + vectorX}
-						y2={cy + vectorY}
-						style={lineStyle}
-					/>
+					A
+				</text>
+				<line
+					x1={bx + vectorX}
+					y1={by + vectorY}
+					x2={cx + vectorX}
+					y2={cy + vectorY}
+					style={lineStyle}
+				/>
 
-					<text
-						style={textStyle}
-						x={bx * scale + scale + vectorX * scale}
-						y={by * scale - scale + vectorY * scale}
-					>
-						B
-					</text>
-					<line
-						x1={ax + vectorX}
-						y1={ay + vectorY}
-						x2={bx + vectorX}
-						y2={by + vectorY}
-						style={lineStyle}
-					/>
+				<text
+					style={textStyle}
+					x={bx * scale + scale + vectorX * scale}
+					y={by * scale - scale + vectorY * scale}
+				>
+					B
+				</text>
+				<line
+					x1={ax + vectorX}
+					y1={ay + vectorY}
+					x2={bx + vectorX}
+					y2={by + vectorY}
+					style={lineStyle}
+				/>
 
-					<text
-						style={textStyle}
-						x={cx * scale + scale + vectorX * scale}
-						y={cy * scale - scale + vectorY * scale}
-					>
-						C
-					</text>
-					<line
-						x1={ax + vectorX}
-						y1={ay + vectorY}
-						x2={cx + vectorX}
-						y2={cy + vectorY}
-						style={lineStyle}
-					/>
-				</svg>
-			</div>
+				<text
+					style={textStyle}
+					x={cx * scale + scale + vectorX * scale}
+					y={cy * scale - scale + vectorY * scale}
+				>
+					C
+				</text>
+				<line
+					x1={ax + vectorX}
+					y1={ay + vectorY}
+					x2={cx + vectorX}
+					y2={cy + vectorY}
+					style={lineStyle}
+				/>
+			</svg>
 		</div>
 	);
 }
