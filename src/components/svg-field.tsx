@@ -1,4 +1,3 @@
-import { cn } from "../lib/utils";
 import { Axes } from "./axes";
 
 export function SvgField({
@@ -26,7 +25,10 @@ export function SvgField({
 	};
 
 	return (
-		<div className={cn(`relative mx-auto w-[${300}px] h-[${300}px]`)}>
+		<div
+			className={"relative mx-auto"}
+			style={{ width: `${svgWidth}px`, height: `${svgHeight}px` }}
+		>
 			<Axes />
 
 			<svg
