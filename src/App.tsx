@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Coords } from "./components/coords";
 import { Calculations } from "./components/calculations";
+import { ResetButton } from "./components/reset-button";
 
 function App() {
 	return (
@@ -11,6 +12,8 @@ function App() {
 
 			<main className="py-4 px-2 flex-auto">
 				<Coords />
+
+				<ResetButton />
 
 				<Calculations />
 			</main>

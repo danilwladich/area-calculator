@@ -15,27 +15,34 @@ type CoordsType = {
 	};
 };
 
+const initialState: CoordsType = {
+	a: {
+		x: 44,
+		y: 16,
+	},
+	b: {
+		x: 18,
+		y: 78,
+	},
+	c: {
+		x: 38,
+		y: 64,
+	},
+};
+
+const sessionState: CoordsType | null = JSON.parse(
+	sessionStorage.getItem("coords") || "null"
+);
+
 interface CoordsStore {
 	coords: CoordsType;
 	isError: boolean;
 	onChange: (coords: CoordsType) => void;
+	onReset: () => void;
 }
 
 export const useCoordsStore = create<CoordsStore>((set) => ({
-	coords: {
-		a: {
-			x: 44,
-			y: 16,
-		},
-		b: {
-			x: 18,
-			y: 78,
-		},
-		c: {
-			x: 38,
-			y: 64,
-		},
-	},
+	coords: sessionState || initialState,
 	isError: false,
 	onChange: (coords: CoordsType) => {
 		if (
@@ -51,6 +58,11 @@ export const useCoordsStore = create<CoordsStore>((set) => ({
 			set({ isError: false });
 		}
 
+		sessionStorage.setItem("coords", JSON.stringify(coords));
 		set({ coords });
+	},
+	onReset: () => {
+		sessionStorage.setItem("coords", JSON.stringify(initialState));
+		set({ coords: initialState });
 	},
 }));

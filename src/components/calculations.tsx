@@ -48,7 +48,7 @@ export function Calculations() {
 	const vectorY = relOY - factOY;
 
 	return (
-		<div>
+		<>
 			<Info area={area} scale={scale} />
 
 			<SvgField
@@ -64,6 +64,6 @@ export function Calculations() {
 				vectorX={vectorX}
 				vectorY={vectorY}
 			/>
-		</div>
+		</>
 	);
 }
